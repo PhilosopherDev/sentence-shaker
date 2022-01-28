@@ -36,10 +36,9 @@ body {
     justify-content: center;
 }
 
-.card input[type=text] {
+.card textarea {
     border-radius: 0.5rem;
     width: 90%;
-    height: 40px;
     font-size: 1.5rem;
     margin-left: 15px;
     padding: 5px;
