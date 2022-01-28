@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <title>Sentence Shaker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div>
+        <span>한글: </span>
+        <input type="text" class="sentence__origin-kor">
+      </div>
+      <div>
+        <span>영어: </span>
+        <input type="text" class="sentence__origin-en">
+      </div>
+      <div>
+        <label for="level">수준</label>
+        <select name="level" id="level">
+          <option value="high1">고1</option>
+          <option value="high2">고2</option>
+          <option value="high3">고3</option>
+        </select>
+      </div>
+      <div>
+        <label for="order">순서 섞기</label>
+        <input type="checkbox" name="order" id="order">
+      </div>
+      <div>
+        <div class="btn-confirm">확인</div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="index.js"></script>
+</body>
+</html>

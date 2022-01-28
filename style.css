@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;    
+    font-size: 2rem;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(225, 100%, 94%) url('./images/pattern-background-desktop.svg') no-repeat;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 2rem;
+    width: 100%;
+    height: 600px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.card div {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card input[type=text] {
+    border-radius: 0.5rem;
+    width: 90%;
+    height: 40px;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    padding: 5px;
+}
+
+.card label {
+    margin-right: 15px;
+}
+
+.card select {
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+    border-radius: 1rem;
+}
+
+.card input[type=checkbox] {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.btn-confirm {
+    padding: 20px;
+    width: 100px !important;
+    background-color: aquamarine;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 1rem;
+    color: gray;
+    text-align: center;
+}
+
+.btn-confirm:hover {
+    cursor: pointer;
+    background-color: hsl(224, 23%, 55%);
+    color: black;
+}
+
+li {
+    list-style: none;
+    float: left;
+    margin-right: 10px;
+}
+
+.result__origin-kor {
+    /* margin-bottom: 80px; */
+    text-align: center;
+}
+
+.result__origin-en li:nth-child(odd){
+    color: green;
+}
+
+.result__origin-en li:nth-child(even) {
+    color: blueviolet;
+}
