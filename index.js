@@ -15,5 +15,9 @@ confirmBtn.addEventListener('click', () => {
     localStorage.setItem('level', document.querySelector('#level').value);
     localStorage.setItem('order', document.querySelector('#order').value);
     
-    window.location = "/result.html";
+    if (window.location.href.indexOf("index.html") > -1) {
+        window.location = "/result.html";
+    } else {
+        window.location = window.location.href + "result.html";
+    }
 });
