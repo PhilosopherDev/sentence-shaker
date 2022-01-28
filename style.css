@@ -29,19 +29,34 @@ body {
     
 }
 
+.card .sentence {
+    flex-wrap: wrap;
+}
+
 .card div {
     display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+}
+
+.card .one {
+    min-width: 70px;    
+    padding: 20px;
+}
+
+.card .two {
+    padding: 20px;
 }
 
 .card textarea {
     border-radius: 0.5rem;
-    width: 90%;
+    width: 80%;
     font-size: 1.5rem;
     margin-left: 15px;
     padding: 5px;
+    resize: none;
 }
 
 .card label {
@@ -62,6 +77,7 @@ body {
 }
 
 .btn-confirm {
+    margin-top: 30px;
     padding: 20px;
     width: 100px !important;
     background-color: aquamarine;
@@ -85,7 +101,6 @@ li {
 }
 
 .result__origin-kor {
-    /* margin-bottom: 80px; */
     text-align: center;
 }
 
