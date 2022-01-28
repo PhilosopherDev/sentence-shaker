@@ -89,10 +89,6 @@ li {
     text-align: center;
 }
 
-.result__origin-en li:nth-child(odd){
-    color: green;
-}
-
-.result__origin-en li:nth-child(even) {
-    color: blueviolet;
+.result__origin-en li {
+    border-bottom: 2px solid black;
 }
