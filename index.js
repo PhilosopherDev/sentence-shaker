@@ -12,8 +12,7 @@ const confirmBtn = document.querySelector('.btn-confirm');
 confirmBtn.addEventListener('click', () => {
     localStorage.setItem('orgKor', document.querySelector('.sentence__origin-kor').value);
     localStorage.setItem('orgEn', document.querySelector('.sentence__origin-en').value);
-    localStorage.setItem('level', document.querySelector('#level').value);
-    localStorage.setItem('order', document.querySelector('#order').value);
+    // localStorage.setItem('level', document.querySelector('#level').value);
     
     if (window.location.href.indexOf("index.html") > -1) {
         window.location = "/result.html";
