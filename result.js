@@ -2,7 +2,7 @@ window.onload = () => {
     const orgKor = document.querySelector('.result__origin-kor');
     const orgEn = document.querySelector('.result__origin-en');
 
-    orgKor.innerText = localStorage.getItem('orgKor');
+    orgKor.innerHTML = `<div>${localStorage.getItem('orgKor')}</div>`;
     const en = localStorage.getItem('orgEn');
 
     shuffle(en.trim().split(" ")).forEach((str) => {

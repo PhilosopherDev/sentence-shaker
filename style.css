@@ -30,13 +30,10 @@ body {
 }
 
 .card .sentence {
-    flex-wrap: wrap;
-}
-
-.card div {
     display: flex;
     width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -85,7 +82,7 @@ body {
     font-weight: 700;
     border-radius: 1rem;
     color: gray;
-    text-align: center;
+    text-align: center;    
 }
 
 .btn-confirm:hover {
@@ -102,6 +99,14 @@ li {
 
 .result__origin-kor {
     text-align: center;
+}
+
+
+.height-limit {
+    margin: 20px 0;
+    max-height: 300px;
+    overflow: auto;
+    align-items: unset;
 }
 
 .result__origin-en li {
