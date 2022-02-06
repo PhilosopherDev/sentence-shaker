@@ -21,7 +21,7 @@ body {
     padding: 30px;
     border-radius: 2rem;
     width: 100%;
-    height: 600px;
+    height: 800px;
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -73,6 +73,23 @@ body {
     cursor: pointer;
 }
 
+.btn-copy {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: aquamarine;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 1rem;
+    color: gray;
+    text-align: center;
+}
+
+.btn-copy:hover {
+    cursor: pointer;
+    background-color: hsl(224, 23%, 55%);
+    color: black;
+}
+
 .btn-confirm {
     margin-top: 30px;
     padding: 20px;
@@ -107,8 +124,4 @@ li {
     max-height: 300px;
     overflow: auto;
     align-items: unset;
-}
-
-.result__origin-en li {
-    border-bottom: 2px solid black;
 }
