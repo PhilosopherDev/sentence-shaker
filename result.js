@@ -1,12 +1,15 @@
 window.onload = () => {
   const orgKor = document.querySelector('.result__origin-kor');
-  const orgEn = document.querySelector('.result__origin-en');
+  const orgEnCorrect = document.querySelector('.result__origin-en-correct');
+  const orgEnShuffle = document.querySelector('.result__origin-en-shuffle');
 
   orgKor.innerText = localStorage.getItem('orgKor');
+  
   const en = localStorage.getItem('orgEn');
+  orgEnCorrect.innerText = en;
 
   const str = shuffle(en.trim().split(" ")).join(" / ");
-  orgEn.innerText = `( ${str} )`;
+  orgEnShuffle.innerText = `( ${str} )`;
 };
 
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -30,8 +33,10 @@ function copy_to_clipboard(e) {
   let copyText;
   if (e.target.id === "copy__kor") {
     copyText = document.querySelector(".result__origin-kor").innerText;
-  } else if (e.target.id === "copy__en") {
-    copyText = document.querySelector(".result__origin-en").innerText;
+  } else if (e.target.id === "copy__en-correct") {
+    copyText = document.querySelector(".result__origin-en-correct").innerText;
+  } else if (e.target.id === "copy__en-shuffle") {
+    copyText = document.querySelector(".result__origin-en-shuffle").innerText;
   }
   
   const textToCopy = copyText;
@@ -49,4 +54,5 @@ function copy_to_clipboard(e) {
 }
 
 document.getElementById("copy__kor").addEventListener("click", copy_to_clipboard);
-document.getElementById("copy__en").addEventListener("click", copy_to_clipboard);
+document.getElementById("copy__en-correct").addEventListener("click", copy_to_clipboard);
+document.getElementById("copy__en-shuffle").addEventListener("click", copy_to_clipboard);
