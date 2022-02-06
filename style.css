@@ -9,26 +9,17 @@ body {
     font-size: 2rem;
 }
 
-.container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: hsl(225, 100%, 94%) url('./images/pattern-background-desktop.svg') no-repeat;
-}
-
 .card {
     padding: 30px;
     border-radius: 2rem;
     width: 100%;
-    height: 800px;
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    
+    gap: 2rem;
 }
 
+.card .btn,
 .card .sentence {
     display: flex;
     width: 100%;
@@ -36,6 +27,10 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.sentence {
+    min-height: 300px;
 }
 
 .card .one {
@@ -121,7 +116,7 @@ li {
 
 .height-limit {
     margin: 20px 0;
-    max-height: 300px;
+    max-height: 200px;
     overflow: auto;
     align-items: unset;
 }
