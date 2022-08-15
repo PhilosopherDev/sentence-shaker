@@ -1,122 +1,253 @@
-* {
-    margin: 0;
-    padding: 0;
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+    /* colors */
+    --clr-dark: 230 35% 7%;
+    --clr-light: 231 77% 90%;
+    --clr-white: 0 0% 100%;
+    
+    /* font-sizes */
+    --fs-900: 9.375rem; /* 150px */
+    --fs-800: 6.25rem; /* 100px */
+    --fs-700: 3.5rem; /* 56px */
+    --fs-600: 2rem; /* 32px */
+    --fs-500: 1.75rem; /* 28px */
+    --fs-400: 1.125rem; /* 18px */
+    --fs-300: 1rem; /* 16px */
+    --fs-200: 0.875rem; /* 14px */
+    
+    /* font-families */
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
+}
+
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+/* set up the body */
 body {
-    height: 100vh;    
-    font-size: 2rem;
+    font-family: var(--ff-sans-normal);
+    font-size: var(--fs-400);
+    color: hsl( var(--clr-white) );
+    background-color: hsl( var(--clr-dark) );
+    line-height: 1.5;
+    min-height: 100vh;
 }
 
-.card {
-    padding: 30px;
-    border-radius: 2rem;
-    width: 100%;
-    background-color: transparent;
+/* make images easier to work with */
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+
+.flex {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    gap: var(--gap, 1rem);
 }
 
-.card .btn,
-.card .sentence {
-    display: flex;
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+/* 처음 빼고 margin-top 을 주거나, 마지막을 빼고 margin-bottom 을 주거나. 그래야 사이에만 margin이 들어가서 전체 box에 padding이나 margin 을 추가해도 위아래로 균일하게 들어간다. */
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1rem);
+    /* outline: 1px solid red; */
+}
+
+.container {
+    padding-inline: 2em;
+    margin-inline: auto;
+    max-width: 80rem;
+}
+
+.sr-only {
+  position: absolute; 
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px; 
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* colors */
+
+.bg-dark { background-color: hsl( var(--clr-dark) );}
+.bg-accent { background-color: hsl( var(--clr-light) );}
+.bg-white { background-color: hsl( var(--clr-white) );}
+
+.text-dark { color: hsl( var(--clr-dark) );}
+.text-accent { color: hsl( var(--clr-light) );}
+.text-white { color: hsl( var(--clr-white) );}
+
+/* typography */
+
+.ff-serif { font-family: var(--ff-serif); } 
+.ff-sans-cond { font-family: var(--ff-sans-cond); } 
+.ff-sans-normal { font-family: var(--ff-sans-normal); } 
+
+.letter-spacing-1 { letter-spacing: 4.75px; } 
+.letter-spacing-2 { letter-spacing: 2.7px; } 
+.letter-spacing-3 { letter-spacing: 2.35px; } 
+
+.uppercase { text-transform: uppercase; }
+
+.fs-900 { font-size: var(--fs-900); }
+.fs-800 { font-size: var(--fs-800); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+
+.numbered-title {
+    font-family: var(--ff-sans-cond);
+    font-size: var(--fs-500);
+    text-transform: uppercase;
+    letter-spacing: 4.72px; 
+}
+
+.numbered-title span {
+    margin-right: .5em;
+    font-weight: 700;
+    color: hsl( var(--clr-white) / .25);
+}
+
+/* ------------------- */
+/* Components          */
+/* ------------------- */
+
+
+.large-button {
+    position: relative;
+    display: grid;
+    z-index: 1;
+    place-items: center;
+    padding: 0 2em;
+    aspect-ratio: 1;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.large-button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
     width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    background: hsl( var(--clr-white) / .15);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 500ms linear, transform 750ms ease-in-out
 }
 
-.sentence {
-    min-height: 300px;
+.large-button:hover::after,
+.large-button:focus::after {
+    opacity: 1;
+    transform: scale(1.5);
 }
 
-.card .one {
-    min-width: 70px;    
-    padding: 20px;
-}
-
-.card .two {
-    padding: 20px;
-}
-
-.card textarea {
-    border-radius: 0.5rem;
-    width: 80%;
-    font-size: 1.5rem;
-    margin-left: 15px;
-    padding: 5px;
-    resize: none;
-}
-
-.card label {
-    margin-right: 15px;
-}
-
-.card select {
-    cursor: pointer;
-    width: 50px;
-    height: 40px;
-    border-radius: 1rem;
-}
-
-.card input[type=checkbox] {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.btn-copy {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: aquamarine;
-    font-size: 1.2rem;
-    font-weight: 700;
-    border-radius: 1rem;
-    color: gray;
-    text-align: center;
-}
-
-.btn-copy:hover {
-    cursor: pointer;
-    background-color: hsl(224, 23%, 55%);
-    color: black;
-}
-
-.btn-confirm {
-    margin-top: 30px;
-    padding: 20px;
-    width: 100px !important;
-    background-color: aquamarine;
-    font-size: 1.2rem;
-    font-weight: 700;
-    border-radius: 1rem;
-    color: gray;
-    text-align: center;    
-}
-
-.btn-confirm:hover {
-    cursor: pointer;
-    background-color: hsl(224, 23%, 55%);
-    color: black;
-}
-
-li {
+.primary-navigation {
+    --gap: 8rem;
     list-style: none;
-    float: left;
-    margin-right: 10px;
+    padding: 0;
+    margin: 0;
+    font-family: var(--ff-sans-cond);
 }
 
-.result__origin-kor {
-    text-align: center;
+.primary-navigation a {
+    text-decoration: none;
 }
 
+.primary-navigation a > span {
+    margin-right: .5em;
+    font-weight: 700;
+}
 
-.height-limit {
-    margin: 20px 0;
-    max-height: 200px;
-    overflow: auto;
-    align-items: unset;
+.underline-indicators > * {
+    border-bottom: 3px white solid;
+}
+
+img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
 }

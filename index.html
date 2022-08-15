@@ -4,24 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <title>Sentence Shaker</title>
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+      rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <div class="card">
-      <div class="sentence">
-        <span class="one">한글</span>
-        <textarea rows="8" class="two sentence__origin-kor"></textarea>
+      <h1 class="ff-serif">Sentence Shaker</h1>
+      <div class="flex" style="justify-content: space-around;">
+        <section style="margin: 4rem 0">
+            <h2 class="numbered-title"><span>01</span> 한글</h2>
+            <textarea name="" id="korean" cols="30" rows="10"></textarea>
+        </section>
+
+        <section style="margin: 4rem 0">
+            <h2 class="numbered-title"><span>02</span> 영어</h2>
+            <textarea name="" id="english" cols="30" rows="10"></textarea>
+        </section>
+
+        <section style="margin: 8rem 0">
+          <a href="#" id="btn-confirm" class="large-button uppercase ff-serif fs-600 text-dark bg-white">확인</a>
+        </section>
       </div>
-      <div class="sentence">
-        <span class="one">영어</span>
-        <textarea rows="8" class="two sentence__origin-en"></textarea>
+      <div class="flex" style="justify-content: space-around;">
+        <section>
+            <h2 class="numbered-title"><span>03</span> 결과</h2>
+            <textarea name="" id="result" cols="80" rows="10"></textarea>
+        </section>
+        <section style="margin: 4rem 0">
+          <a href="#" id="btn-copy" class="large-button uppercase ff-serif fs-600 text-dark bg-white">Copy</a>
+        </section>
+        <section style="margin: 4rem 0;">
+          <img id="molang" src="./images/molang.jpeg" alt="molang">
+        </section>
       </div>
-      <div class="btn">
-        <div class="btn-confirm">확인</div>
-      </div>
-    </div>
-  </div>
   <script type="module" src="index.js"></script>
 </body>
 </html>

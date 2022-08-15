@@ -1,22 +1,48 @@
-window.onload = () => {
-    const orgKor = document.querySelector('.sentence__origin-kor');
-    const orgEn = document.querySelector('.sentence__origin-en');
+function generateShakedSentence() {
+    const k_textarea = document.getElementById("korean");
+    const e_textarea = document.getElementById("english");
+    const r_textarea = document.getElementById("result");
 
-    orgKor.value = localStorage.getItem('orgKor');
-    orgEn.value = localStorage.getItem('orgEn');
+    const kv = k_textarea.value.split('\n');
+    const ev = e_textarea.value.split('\n');
+
+    const e_result = ev.map((s) => {
+        return `( ${shuffle(s.trim().split(" ")).join(" / ")} )`;
+    });
+
+    const result = kv.map((s, i) => {
+        return s + '\n' + e_result[i];
+    }).join('\n');
+
+    r_textarea.value = result;
 }
 
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
 
-const confirmBtn = document.querySelector('.btn-confirm');
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
 
-confirmBtn.addEventListener('click', () => {
-    localStorage.setItem('orgKor', document.querySelector('.sentence__origin-kor').value);
-    localStorage.setItem('orgEn', document.querySelector('.sentence__origin-en').value);
-    // localStorage.setItem('level', document.querySelector('#level').value);
-    
-    if (window.location.href.indexOf("index.html") > -1) {
-        window.location = "/result.html";
-    } else {
-        window.location = window.location.href + "result.html";
-    }
-});
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+function copy_to_clipboard(e) {    
+    const result_textarea = document.querySelector("#result");
+    const copyText = result_textarea.value;
+    navigator.clipboard.writeText(copyText);
+}
+
+function reload() {
+    location.reload(true);
+}
+
+document.getElementById("btn-confirm").addEventListener("click", generateShakedSentence);
+document.getElementById("btn-copy").addEventListener("click", copy_to_clipboard);
+document.getElementById("molang").addEventListener("click", reload);
